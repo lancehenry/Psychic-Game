@@ -1,0 +1,16 @@
+/**********************************
+MINOR CSS CHANGES
+**********************************/
+
+.jumbotron {
+	text-align: center;
+	margin-top: 5%;
+}
+
+.jumbotron p {
+	font-weight: bold;
+}
+
+span {
+	font-weight: normal;
+}
