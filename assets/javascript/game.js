@@ -7,8 +7,7 @@
 // Once number of guesses hits 0, game resets
 
 // Array that holds the alphabet
-var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-    'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
 // Variables that track wins, losses and guesses
 var wins = 0;
@@ -19,12 +18,10 @@ var guessesLeft = 10;
 var guessesSoFar = [];
 
 // Variable for the users key press
-var userGuess = null;
+var userGuess = [];
 
 // Computer randomly picks a letter from the alphabet array
 var compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-
-console.log("Wins: " + wins + " Losses: " + losses + " Remaining Guesses: " + guessesLeft + " Guessed So Far: " + guessesSoFar + " Computer Picked: " + compChoice);
 
 // On Key Up function
 document.onkeyup = function (event) {
@@ -49,8 +46,16 @@ document.onkeyup = function (event) {
         compChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
     }
 
-    
+    var html =
+        "<p>You chose: " + userGuess + "</p>" +
+        "<p>Remaining Guesses: " + guessesLeft + "</p>" +
+        "<p>wins: " + wins + "</p>" +
+        "<p>losses: " + losses + "</p>";
 
-    console.log("Wins: " + wins + " Losses: " + losses + " Remaining Guesses: " + guessesLeft + " Guessed So Far: " + guessesSoFar + " Computer Picked: " + compChoice);
+    // Set the inner HTML contents of the #game div to our html string
+    document.querySelector("#game").innerHTML = html;
+};
 
-}
+
+    // console.log("Wins: " + wins + " Losses: " + losses + " Remaining Guesses: " + guessesLeft + " Guessed So Far: " + guessesSoFar + " Computer Picked: " + compChoice);
+
